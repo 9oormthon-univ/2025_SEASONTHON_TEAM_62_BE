@@ -42,7 +42,23 @@ public class CrewSearchRequest {
     private String minPace;
     
     @Schema(description = "시작 시간 이후 필터 - 실제 필터링 동작", example = "2025-01-05T16:00:00")
-    private LocalDateTime startTimeFrom;
+    private String startTimeFromStr;
+    
+    // 실제 사용할 LocalDateTime 필드 (getter에서 변환)
+    public LocalDateTime getStartTimeFrom() {
+        if (startTimeFromStr == null || startTimeFromStr.isEmpty()) {
+            return null;
+        }
+        try {
+            // ISO 8601 형식의 문자열을 LocalDateTime으로 변환
+            // Z는 UTC를 의미하므로 이를 제거하고 LocalDateTime으로 파싱
+            String cleanDateTime = startTimeFromStr.replace("Z", "");
+            return LocalDateTime.parse(cleanDateTime);
+        } catch (Exception e) {
+            // 파싱 실패 시 null 반환
+            return null;
+        }
+    }
     
     // 페이징 및 정렬
     @Schema(description = "페이지 번호 (0부터 시작)", example = "0")

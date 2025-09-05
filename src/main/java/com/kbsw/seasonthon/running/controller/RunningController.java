@@ -54,21 +54,25 @@ public class RunningController {
      * 러닝 통계 조회
      */
     @GetMapping("/stats")
-    @Operation(summary = "러닝 통계 조회", description = "현재 사용자의 러닝 통계를 조회합니다.")
-    public ResponseEntity<ResponseBody<RunningStatsResponse>> getRunningStats(
-            @AuthenticationPrincipal PrincipalDetails principal) {
+    @Operation(summary = "러닝 통계 조회", description = "현재 사용자의 러닝 통계를 조회합니다. (AWS: 더미 사용자)")
+    public ResponseEntity<ResponseBody<RunningStatsResponse>> getRunningStats() {
         
-        if (principal == null || principal.getUser() == null) {
-            log.warn("인증되지 않은 러닝 통계 조회 요청");
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-        }
+        log.info("러닝 통계 조회 API 호출 - AWS: 더미 사용자 사용");
         
-        log.info("러닝 통계 조회 API 호출 - 사용자: {}", principal.getUser().getId());
-        
-        User user = principal.getUser();
-        RunningStatsResponse stats = runningRecordService.getRunningStats(user);
+        // AWS: 더미 사용자 사용
+        User dummyUser = getDummyUser();
+        RunningStatsResponse stats = runningRecordService.getRunningStats(dummyUser);
         
         return ResponseEntity.ok(ResponseUtil.createSuccessResponse(stats));
+    }
+    
+    private User getDummyUser() {
+        // 더미 사용자 반환 (admin 사용자)
+        return User.builder()
+                .id(4L)  // admin 사용자 ID
+                .username("admin")
+                .email("admin@example.com")
+                .build();
     }
 
     /**

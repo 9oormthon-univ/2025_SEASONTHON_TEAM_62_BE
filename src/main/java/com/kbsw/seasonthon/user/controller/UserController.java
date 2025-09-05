@@ -36,9 +36,9 @@ public class UserController {
     }
 
     @GetMapping("/me")
-    @Operation(summary = "내 정보 조회", description = "현재 사용자의 정보를 조회합니다. (개발 모드: 더미 사용자)")
+    @Operation(summary = "내 정보 조회", description = "현재 사용자의 정보를 조회합니다. (AWS: 더미 사용자)")
     public UserResponseDto me() {
-        // 개발 모드: 더미 사용자 ID 사용 (admin 사용자)
+        // AWS: 더미 사용자 ID 사용 (admin 사용자)
         return userService.getUserInfoById(4L);
     }
 

@@ -11,7 +11,23 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@Schema(description = "크루 생성 요청")
+@Schema(description = "크루 생성 요청", example = """
+{
+  "title": "달서구 안전 러닝 크루",
+  "description": "AI가 추천한 안전한 경로로 함께 러닝해요!",
+  "maxParticipants": 8,
+  "routeId": "ai_route_001",
+  "type": "safe",
+  "distanceKm": 5.2,
+  "safetyScore": 85,
+  "durationMin": 32,
+  "waypoints": ["37.5665,126.9780", "37.5675,126.9790"],
+  "tags": ["초보자", "안전", "AI추천"],
+  "startLocation": "경북대학교 정문",
+  "pace": "6'30\"/km",
+  "startTime": "2024-01-15T07:00:00"
+}
+""")
 public class CrewCreateRequest {
     
     @Schema(description = "크루 제목", example = "달서구 안전 러닝 크루", required = true)

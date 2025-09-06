@@ -1,0 +1,1220 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources
+> Task :classes
+> Task :resolveMainClassName
+
+> Task :bootRun
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.5)
+
+2025-09-07T05:09:51.109+09:00  INFO 11136 --- [           main] c.kbsw.seasonthon.SeasonthonApplication  : Starting SeasonthonApplication using Java 17.0.12 with PID 11136 (/Users/nohseunghyeok/Documents/대외활동/구름톤/seasonthon/seasonthon/build/classes/java/main started by nohseunghyeok in /Users/nohseunghyeok/Documents/대외활동/구름톤/seasonthon/seasonthon)
+2025-09-07T05:09:51.110+09:00  INFO 11136 --- [           main] c.kbsw.seasonthon.SeasonthonApplication  : No active profile set, falling back to 1 default profile: "default"
+2025-09-07T05:09:51.519+09:00  INFO 11136 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-09-07T05:09:51.648+09:00  INFO 11136 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 116 ms. Found 7 JPA repository interfaces.
+2025-09-07T05:09:52.002+09:00  INFO 11136 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-09-07T05:09:52.009+09:00  INFO 11136 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-07T05:09:52.010+09:00  INFO 11136 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-09-07T05:09:52.035+09:00  INFO 11136 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-09-07T05:09:52.036+09:00  INFO 11136 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 909 ms
+2025-09-07T05:09:52.115+09:00  INFO 11136 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-09-07T05:09:52.146+09:00  INFO 11136 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-09-07T05:09:52.162+09:00  INFO 11136 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-09-07T05:09:52.318+09:00  INFO 11136 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-09-07T05:09:52.335+09:00  INFO 11136 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-09-07T05:09:53.002+09:00  INFO 11136 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@784212
+2025-09-07T05:09:53.003+09:00  INFO 11136 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-09-07T05:09:53.098+09:00  WARN 11136 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-07T05:09:53.107+09:00  INFO 11136 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.42
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-09-07T05:09:53.576+09:00  INFO 11136 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    alter table reports 
+       modify column status enum ('OPEN','REJECTED','RESOLVED') not null
+Hibernate: 
+    alter table reports 
+       modify column target_type enum ('HAZARD','LOCATION','ROUTE') not null
+Hibernate: 
+    alter table running_records 
+       add column safety_level enum ('MEDIUM','SAFE','UNSAFE')
+2025-09-07T05:09:55.117+09:00  INFO 11136 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-09-07T05:09:55.234+09:00  INFO 11136 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-09-07T05:09:55.894+09:00  INFO 11136 --- [           main] c.k.s.global.config.SwaggerConfig        : 🔧 Swagger 설정 - 개발 모드: 인증 없이 모든 API 테스트 가능
+2025-09-07T05:09:55.948+09:00  WARN 11136 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-09-07T05:09:56.048+09:00  INFO 11136 --- [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-09-07T05:09:56.255+09:00  INFO 11136 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-09-07T05:09:56.260+09:00  INFO 11136 --- [           main] c.kbsw.seasonthon.SeasonthonApplication  : Started SeasonthonApplication in 5.353 seconds (process running for 5.536)
+Hibernate: 
+    select
+        count(*) 
+    from
+        users u1_0
+2025-09-07T05:09:56.534+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 시드 데이터가 이미 존재합니다. 초기화를 건너뜁니다.
+2025-09-07T05:09:56.534+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : === 러닝 더미 데이터 생성 시작 ===
+2025-09-07T05:09:56.535+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 실제 DB 유저들을 기준으로 러닝 기록 테스트 데이터 생성 중...
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.modified_at,
+        u1_0.nickname,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.provider_id,
+        u1_0.provider_type,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0
+2025-09-07T05:09:56.740+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : DB에서 15 명의 유저를 찾았습니다.
+Hibernate: 
+    select
+        rr1_0.id,
+        rr1_0.best_pace,
+        rr1_0.created_at,
+        rr1_0.distance_km,
+        rr1_0.duration_minutes,
+        rr1_0.end_time,
+        rr1_0.modified_at,
+        rr1_0.notes,
+        rr1_0.pace,
+        rr1_0.route_data,
+        rr1_0.safety_level,
+        rr1_0.start_time,
+        rr1_0.user_id,
+        rr1_0.weather 
+    from
+        running_records rr1_0
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        running_records 
+    where
+        id=?
+2025-09-07T05:09:59.240+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 기존 러닝 기록을 모두 삭제했습니다.
+2025-09-07T05:09:59.240+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : admin 사용자 확인: ID=15, Username=admin
+2025-09-07T05:09:59.240+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 유저 취준러너김 (ID: 1)의 러닝 기록 생성 중...
+2025-09-07T05:09:59.240+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 유저 내성적인박 (ID: 2)의 러닝 기록 생성 중...
+2025-09-07T05:09:59.240+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 유저 대학생조 (ID: 3)의 러닝 기록 생성 중...
+2025-09-07T05:09:59.240+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 유저 친화적인이 (ID: 4)의 러닝 기록 생성 중...
+2025-09-07T05:09:59.241+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 유저 프리랜서최 (ID: 5)의 러닝 기록 생성 중...
+2025-09-07T05:09:59.241+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 유저 러닝초보강 (ID: 6)의 러닝 기록 생성 중...
+2025-09-07T05:09:59.241+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 유저 사교적인정 (ID: 7)의 러닝 기록 생성 중...
+2025-09-07T05:09:59.241+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 유저 외로운윤 (ID: 8)의 러닝 기록 생성 중...
+2025-09-07T05:09:59.241+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 유저 직장인한 (ID: 9)의 러닝 기록 생성 중...
+2025-09-07T05:09:59.241+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 유저 운동초보송 (ID: 10)의 러닝 기록 생성 중...
+2025-09-07T05:09:59.241+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 유저 조용한오 (ID: 11)의 러닝 기록 생성 중...
+2025-09-07T05:09:59.241+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 유저 의욕적인임 (ID: 12)의 러닝 기록 생성 중...
+2025-09-07T05:09:59.241+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 유저 졸업생남 (ID: 13)의 러닝 기록 생성 중...
+2025-09-07T05:09:59.241+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 유저 새내기서 (ID: 14)의 러닝 기록 생성 중...
+2025-09-07T05:09:59.241+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 유저 관리자 (ID: 15)의 러닝 기록 생성 중...
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        running_records
+        (best_pace, created_at, distance_km, duration_minutes, end_time, modified_at, notes, pace, route_data, safety_level, start_time, user_id, weather) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-09-07T05:10:01.574+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 러닝 기록 테스트 데이터 65 개 생성 완료
+2025-09-07T05:10:01.575+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : === 러닝 더미 데이터 생성 완료 ===
+2025-09-07T05:10:01.575+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : === 개발용 자동 Access Token 생성 및 테스트 ===
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.modified_at,
+        u1_0.nickname,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.provider_id,
+        u1_0.provider_type,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-09-07T05:10:01.631+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 🔑 admin 사용자 조회 완료: ID=15, Username=admin
+2025-09-07T05:10:01.691+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 🎫 자동 생성된 Access Token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxNSIsImlhdCI6MTc1NzE4OTQwMSwiZXhwIjoxNzU3MTkzMDAxfQ.xLgrkBbj3v2WtMTH2DWvgH660t6fNNh88yrwwFjrgma2vcr_6wMNKy4RiLQ60N-aXlSEVotats3ZhUQ3dqy0-A
+2025-09-07T05:10:01.692+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 💾 개발용 Access Token이 시스템 프로퍼티에 저장되었습니다.
+2025-09-07T05:10:01.692+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 🔍 API 테스트 시작 (RestTemplate 없이)
+2025-09-07T05:10:01.692+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : ✅ 사용자 정보 조회 API 준비됨
+2025-09-07T05:10:01.692+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : ✅ 러닝 통계 조회 API 준비됨
+2025-09-07T05:10:01.692+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : ✅ 크루 목록 조회 API 준비됨
+2025-09-07T05:10:01.692+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : ✅ 즐겨찾기 조회 API 준비됨
+2025-09-07T05:10:01.692+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : ✅ 경로 추천 API 준비됨
+2025-09-07T05:10:01.692+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 🎯 모든 API가 준비되었습니다. Swagger UI에서 테스트하세요!
+2025-09-07T05:10:01.692+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 🎉 개발용 자동 Access Token 생성 및 테스트 완료!
+2025-09-07T05:10:01.692+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 📋 사용 가능한 Access Token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxNSIsImlhdCI6MTc1NzE4OTQwMSwiZXhwIjoxNzU3MTkzMDAxfQ.xLgrkBbj3v2WtMTH2DWvgH660t6fNNh88yrwwFjrgma2vcr_6wMNKy4RiLQ60N-aXlSEVotats3ZhUQ3dqy0-A
+2025-09-07T05:10:01.692+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 💡 이 토큰을 Swagger UI나 Postman에서 사용하세요!
+2025-09-07T05:10:01.692+09:00  INFO 11136 --- [           main] c.k.s.global.config.DataInitializer      : 🔧 시스템 프로퍼티 'DEV_ACCESS_TOKEN'에서도 확인 가능합니다.
+2025-09-07T05:10:29.631+09:00  INFO 11136 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-07T05:10:29.632+09:00  INFO 11136 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-09-07T05:10:29.641+09:00  INFO 11136 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.modified_at,
+        u1_0.nickname,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.provider_id,
+        u1_0.provider_type,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2025-09-07T05:10:29.940+09:00 ERROR 11136 --- [nio-8080-exec-1] c.k.s.g.b.r.e.GlobalExceptionHandler     : Exception Message : No static resource api/health. 
+
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/health.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.44.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.44.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at com.kbsw.seasonthon.security.jwt.filter.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:81) ~[main/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:235) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:229) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:198) ~[spring-security-oauth2-client-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319) ~[spring-security-config-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240) ~[spring-security-config-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.valves.RemoteIpValve.invoke(RemoteIpValve.java:732) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2025-09-07T05:16:36.094+09:00  INFO 11136 --- [nio-8080-exec-2] c.k.s.f.controller.FavoriteController    : 즐겨찾기 목록 조회 API 호출 - userId: 7
+2025-09-07T05:16:36.208+09:00  INFO 11136 --- [nio-8080-exec-2] c.k.s.favorite.service.FavoriteService   : 즐겨찾기 목록 조회 요청 - userId: 7
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.modified_at,
+        u1_0.nickname,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.provider_id,
+        u1_0.provider_type,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        f1_0.id,
+        f1_0.created_at,
+        f1_0.distancem,
+        f1_0.durations,
+        f1_0.modified_at,
+        f1_0.name,
+        f1_0.safety_level,
+        f1_0.safety_score,
+        f1_0.saved_polyline,
+        f1_0.user_id 
+    from
+        favorites f1_0 
+    where
+        f1_0.user_id=? 
+    order by
+        f1_0.created_at desc
+Hibernate: 
+    select
+        t1_0.favorite_id,
+        t1_0.tag 
+    from
+        favorite_tags t1_0 
+    where
+        t1_0.favorite_id=?
+2025-09-07T05:16:36.442+09:00  INFO 11136 --- [nio-8080-exec-3] c.k.s.f.controller.FavoriteController    : 즐겨찾기 목록 조회 API 호출 - userId: 7
+2025-09-07T05:16:36.503+09:00  INFO 11136 --- [nio-8080-exec-3] c.k.s.favorite.service.FavoriteService   : 즐겨찾기 목록 조회 요청 - userId: 7
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.modified_at,
+        u1_0.nickname,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.provider_id,
+        u1_0.provider_type,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+Hibernate: 
+    select
+        f1_0.id,
+        f1_0.created_at,
+        f1_0.distancem,
+        f1_0.durations,
+        f1_0.modified_at,
+        f1_0.name,
+        f1_0.safety_level,
+        f1_0.safety_score,
+        f1_0.saved_polyline,
+        f1_0.user_id 
+    from
+        favorites f1_0 
+    where
+        f1_0.user_id=? 
+    order by
+        f1_0.created_at desc
+Hibernate: 
+    select
+        t1_0.favorite_id,
+        t1_0.tag 
+    from
+        favorite_tags t1_0 
+    where
+        t1_0.favorite_id=?

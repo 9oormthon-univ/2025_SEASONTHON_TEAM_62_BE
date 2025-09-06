@@ -50,6 +50,9 @@ public class CrewService {
     private final RestTemplate restTemplate;
 
     public CrewCreateResponse createCrew(CrewCreateRequest request, User user) {
+        // SafetyLevel 계산
+        SafetyLevel safetyLevel = SafetyLevel.fromScore(request.getSafetyScore());
+        
         // 프론트엔드에서 선택된 경로 정보를 직접 사용
         Crew crew = Crew.builder()
                 .title(request.getTitle())
@@ -57,6 +60,12 @@ public class CrewService {
                 .host(user)
                 .maxParticipants(request.getMaxParticipants())
                 .routeId(request.getRouteId())
+                .type(request.getType())
+                .distanceKm(request.getDistanceKm())
+                .safetyScore(request.getSafetyScore())
+                .safetyLevel(safetyLevel)
+                .durationMin(request.getDurationMin())
+                .waypoints(request.getWaypoints() != null ? request.getWaypoints() : List.of())
                 .tags(request.getTags() != null ? request.getTags() : List.of())
                 .startLocation(request.getStartLocation())
                 .pace(request.getPace())

@@ -285,10 +285,11 @@ curl -X GET http://localhost:8080/api/recent-paths
 ## 👥 팀 정보
 
 **2025 SEASONTHON TEAM 62**
+- Planner
+- Designer
 - Backend Development Team
 - Frontend Development Team  
 - AI/ML Development Team
-- DevOps Team
 
 ---
 

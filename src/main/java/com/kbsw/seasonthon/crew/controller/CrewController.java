@@ -34,7 +34,15 @@ public class CrewController {
     private final UserRepository userRepository;
 
     @PostMapping
-    @Operation(summary = "크루 생성", description = "새로운 크루를 생성합니다.")
+    @Operation(
+        summary = "크루 생성", 
+        description = "새로운 크루를 생성합니다. 프론트엔드에서 AI로 선택한 경로 정보를 받아 크루를 생성합니다.",
+        responses = {
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "크루 생성 성공"),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "400", description = "잘못된 요청 데이터"),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "401", description = "인증되지 않은 사용자")
+        }
+    )
     public ResponseEntity<CrewCreateResponse> createCrew(
             @RequestBody CrewCreateRequest request,
             @AuthenticationPrincipal PrincipalDetails principal) {

@@ -1,5 +1,6 @@
 package com.kbsw.seasonthon.crew.dto.request;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,20 +11,47 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@Schema(description = "크루 생성 요청")
 public class CrewCreateRequest {
+    
+    @Schema(description = "크루 제목", example = "달서구 안전 러닝 크루", required = true)
     private String title;
+    
+    @Schema(description = "크루 설명", example = "AI가 추천한 안전한 경로로 함께 러닝해요!")
     private String description;
+    
+    @Schema(description = "최대 참여자 수", example = "8", required = true)
     private Integer maxParticipants;
+    
+    @Schema(description = "경로 ID", example = "ai_route_001", required = true)
     private String routeId;
-    private String type;                 // 경로 타입 (예: "safe", "fast", "scenic")
-    private Double distanceKm;           // 거리 (km)
-    private Integer safetyScore;         // 안전 점수
-    private Integer durationMin;         // 예상 소요 시간 (분)
-    private List<String> waypoints;      // 경로 좌표 리스트 (예: ["37.5665,126.9780", "37.5675,126.9790"])
+    
+    @Schema(description = "경로 타입", example = "safe", allowableValues = {"safe", "normal", "challenging"}, required = true)
+    private String type;
+    
+    @Schema(description = "거리 (km)", example = "5.2", required = true)
+    private Double distanceKm;
+    
+    @Schema(description = "안전 점수 (0-100)", example = "85", required = true)
+    private Integer safetyScore;
+    
+    @Schema(description = "예상 소요 시간 (분)", example = "32", required = true)
+    private Integer durationMin;
+    
+    @Schema(description = "경로 좌표 리스트", example = "[\"37.5665,126.9780\", \"37.5675,126.9790\"]")
+    private List<String> waypoints;
+    
+    @Schema(description = "태그 리스트", example = "[\"초보자\", \"안전\", \"AI추천\"]")
     private List<String> tags;
-    private String startLocation;        // 시작 위치 (예: "경북대학교 정문")
-    private String pace;                 // 페이스 (예: "6'30\"/km")
-    private LocalDateTime startTime;     // 시작 시간
+    
+    @Schema(description = "시작 위치", example = "경북대학교 정문")
+    private String startLocation;
+    
+    @Schema(description = "페이스", example = "6'30\"/km")
+    private String pace;
+    
+    @Schema(description = "시작 시간", example = "2024-01-15T07:00:00")
+    private LocalDateTime startTime;
 }
 
 

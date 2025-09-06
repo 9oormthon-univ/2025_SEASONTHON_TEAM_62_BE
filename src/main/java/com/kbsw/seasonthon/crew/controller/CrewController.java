@@ -13,6 +13,8 @@ import com.kbsw.seasonthon.crew.dto.response.CrewUpdateResponse;
 import com.kbsw.seasonthon.crew.service.CrewService;
 import com.kbsw.seasonthon.security.oauth2.principal.PrincipalDetails;
 import com.kbsw.seasonthon.user.entity.User;
+import com.kbsw.seasonthon.user.repository.UserRepository;
+import com.kbsw.seasonthon.security.jwt.enums.Role;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -29,6 +31,7 @@ import org.springframework.web.bind.annotation.*;
 public class CrewController {
 
     private final CrewService crewService;
+    private final UserRepository userRepository;
 
     @PostMapping
     @Operation(summary = "크루 생성", description = "새로운 크루를 생성합니다.")
@@ -51,12 +54,9 @@ public class CrewController {
     }
     
     private User getDummyUser() {
-        // 더미 사용자 반환 (실제 구현에서는 UserRepository에서 조회)
-        return User.builder()
-                .id(1L)
-                .username("dummy_user")
-                .email("dummy@example.com")
-                .build();
+        // admin 사용자 조회
+        return userRepository.findByUsername("admin")
+                .orElseThrow(() -> new RuntimeException("admin 사용자를 찾을 수 없습니다."));
     }
 
     @PatchMapping("/{id}")

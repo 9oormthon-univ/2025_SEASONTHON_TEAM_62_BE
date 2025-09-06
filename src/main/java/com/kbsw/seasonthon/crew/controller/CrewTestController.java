@@ -83,7 +83,33 @@ public class CrewTestController {
     @GetMapping
     @Operation(summary = "크루 리스트 조회 (테스트)", description = "검색 조건에 따라 크루 리스트를 조회합니다. (인증 없음)")
     public ResponseEntity<CrewListPageResponse> searchCrews(
-            @ModelAttribute CrewSearchRequest request) {
+            @RequestParam(required = false) String keyword,
+            @RequestParam(required = false) String startLocation,
+            @RequestParam(required = false) String status,
+            @RequestParam(required = false) String safetyLevel,
+            @RequestParam(required = false) Double maxDistance,
+            @RequestParam(required = false) String minPace,
+            @RequestParam(required = false) String startTimeFromStr,
+            @RequestParam(defaultValue = "0") Integer page,
+            @RequestParam(defaultValue = "20") Integer size,
+            @RequestParam(defaultValue = "createdAt") String sortBy,
+            @RequestParam(defaultValue = "DESC") String sortDirection,
+            @RequestParam(required = false) String sortType) {
+        
+        // CrewSearchRequest 객체 생성
+        CrewSearchRequest request = new CrewSearchRequest();
+        request.setKeyword(keyword);
+        request.setStartLocation(startLocation);
+        request.setStatus(status);
+        request.setSafetyLevel(safetyLevel);
+        request.setMaxDistance(maxDistance);
+        request.setMinPace(minPace);
+        request.setStartTimeFromStr(startTimeFromStr);
+        request.setPage(page);
+        request.setSize(size);
+        request.setSortBy(sortBy);
+        request.setSortDirection(sortDirection);
+        request.setSortType(sortType);
         
         CrewListPageResponse response = crewTestService.searchCrews(request);
         return ResponseEntity.ok(response);

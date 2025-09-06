@@ -36,7 +36,7 @@ public class CrewController {
     @PostMapping
     @Operation(summary = "크루 생성", description = "새로운 크루를 생성합니다.")
     public ResponseEntity<CrewCreateResponse> createCrew(
-            @Valid @RequestBody CrewCreateRequest request,
+            @RequestBody CrewCreateRequest request,
             @AuthenticationPrincipal PrincipalDetails principal) {
         
         // 개발 환경에서는 더미 사용자 사용

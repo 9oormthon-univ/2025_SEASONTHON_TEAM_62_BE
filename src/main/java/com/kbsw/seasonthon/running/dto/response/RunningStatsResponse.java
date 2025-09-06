@@ -31,3 +31,4 @@ public class RunningStatsResponse {
         private String weather;
     }
 }
+

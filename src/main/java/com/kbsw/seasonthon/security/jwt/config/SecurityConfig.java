@@ -78,7 +78,10 @@ public class SecurityConfig {
                         // 나머지 신고 API는 인증 필요
                         .requestMatchers("/api/hazards/**").authenticated()
 
-                        // 개발 환경: 모든 요청 허용
+                        // 기타 API들도 인증 필요로 설정 (필요에 따라 조정)
+                        .requestMatchers("/api/**").authenticated()
+                        
+                        // 나머지는 허용
                         .anyRequest().permitAll()
                 )
 

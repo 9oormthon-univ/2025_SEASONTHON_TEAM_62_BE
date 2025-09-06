@@ -87,6 +87,9 @@ public class SecurityConfig {
                         // 러닝 관련 API 허용
                         .requestMatchers("/api/running/**").permitAll()
                         
+                        // 최근 경로 관련 API 허용
+                        .requestMatchers("/api/recent-paths/**").permitAll()
+                        
                         // 기타 API들도 인증 필요로 설정 (필요에 따라 조정)
                         .requestMatchers("/api/**").authenticated()
                         
